@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>歌词韵脚检测器</title>
+    <title>歌词韵脚平仄检测器</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/codemirror.min.js" integrity="sha512-JpMCZgesTWh1iu/8ujURbwkJBgbgFWe3sTNCHdIuEvPwZuuN0nTUr2yawXahpgdEK7FOZUlW254Rp7AyDYJdjg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/codemirror.min.css" integrity="sha512-CCnciBUnVXwa6IQT9q8EmGcarNit9GdKI5nJnj56B1iu0LuD13Qn/GZ+IUkrZROZaBdutN718NK6mIXdUjZGqg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
@@ -32,8 +32,8 @@
           text-align: center;
         }
         .wrapper {
-          width: 80%;
-          max-width: 800px;
+          width: 100%;
+          max-width: 1200px;
           margin-left: auto;
           margin-right: auto;
         }
@@ -51,7 +51,7 @@
 </head>
 <body>
 <header class="header">
-  <h1>一个韵脚检测工具</h1>
+  <h1>一个歌词韵脚平仄检测工具，辅助作词</h1>
 </header>
 <div class="wrapper">
   <div id="input">
@@ -60,6 +60,7 @@
       <br>
       <br>
       <input type="submit" value="提取韵脚">
+      <input type="submit" value="提取平仄" formaction="/rhythm">
     </form>
   </div>
   <div id="out">
@@ -69,6 +70,7 @@
 <div class="clear-fix"></div>
 <footer>
   <h3>什么？别的功能？一个十分钟开发的工具就不要要求太多啦……</h3>
+  <p><a href="https://www.douban.com/note/232531665/?_i=2001813FZJe5fv">这里是一个简单的格律和平仄参考</a>，上面的平仄都是根据普通话来的，没考虑方言和古语发音</p>
 </footer>
 <script>
   var myTextArea = document.getElementById("input-text")
