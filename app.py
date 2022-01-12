@@ -35,6 +35,8 @@ def hello_world():  # put application's code here
             "index.html",
             **context
         )
+    else:
+        context['original'] = "在这里输入歌词"
     return render_template(
         "index.html",
         **context,

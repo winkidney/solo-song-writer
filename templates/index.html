@@ -3,28 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <title>歌词押韵和声调检测器</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/codemirror.min.js" integrity="sha512-JpMCZgesTWh1iu/8ujURbwkJBgbgFWe3sTNCHdIuEvPwZuuN0nTUr2yawXahpgdEK7FOZUlW254Rp7AyDYJdjg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/codemirror.min.css" integrity="sha512-CCnciBUnVXwa6IQT9q8EmGcarNit9GdKI5nJnj56B1iu0LuD13Qn/GZ+IUkrZROZaBdutN718NK6mIXdUjZGqg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+        #input-text {
+          font-size: 16px;
+        }
+        #output-text {
+          font-size: 16px;
+        }
+        body {
+          background-color: lightsteelblue;
+        }
         #input  {
-            margin-left: 10rem;
-            float: left;
+          float: left;
+          width: 50%;
         }
         #out {
-            margin-left: 1rem;
-            float: left;
+          float: left;
+          width: 50%;
+        }
+        .header {
+          width: 100%;
+          text-align: center;
+        }
+        footer {
+          width: 100%;
+          text-align: center;
+        }
+        .wrapper {
+          width: 80%;
+          max-width: 800px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        input {
+          padding: 0.5rem 1rem;
+        }
+        .clear-fix {
+          clear: both;
+        }
+        .CodeMirror {
+          font-size: 16px;
+          line-height: 24px;
         }
     </style>
 </head>
 <body>
-<div id="input">
+<header class="header">
+  <h1>一个韵脚检测工具</h1>
+</header>
+<div class="wrapper">
+  <div id="input">
     <form action="/" method="POST">
-        <textarea name="original" rows="30" cols="50">{{ original }}</textarea>
-        <br>
-        <input type="submit" value="提取韵脚">
+      <textarea id="input-text" name="original" rows="50" cols="50">{{ original }}</textarea>
+      <br>
+      <br>
+      <input type="submit" value="提取韵脚">
     </form>
+  </div>
+  <div id="out">
+    <textarea id="output-text">{{ out }}</textarea>
+  </div>
 </div>
-
-<div id="out">
-    <pre>{{ out }}</pre>
-</div>
+<div class="clear-fix"></div>
+<footer>
+  <h3>什么？别的功能？一个十分钟开发的工具就不要要求太多啦……</h3>
+</footer>
+<script>
+  var myTextArea = document.getElementById("input-text")
+  var myTextAreaOut = document.getElementById("output-text")
+  var myCodeMirror = CodeMirror.fromTextArea(
+    myTextArea,
+    {
+      lineNumbers: true,
+      mode: "htmlmixed",
+      fontsize: "16px",
+    }
+  );
+  var myCodeMirror2 = CodeMirror.fromTextArea(
+    myTextAreaOut,
+    {
+      lineNumbers: true,
+      mode: "htmlmixed",
+      readOnly: true,
+    }
+  );
+</script>
 </body>
 </html>
