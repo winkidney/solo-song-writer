@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>歌词押韵和声调检测器</title>
+    <style>
+        #input  {
+            margin-left: 10rem;
+            float: left;
+        }
+        #out {
+            margin-left: 1rem;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div id="input">
+    <form action="/" method="POST">
+        <textarea name="original" rows="30" cols="50">{{ original }}</textarea>
+        <br>
+        <input type="submit" value="提取韵脚">
+    </form>
+</div>
+
+<div id="out">
+    <pre>{{ out }}</pre>
+</div>
+</body>
+</html>
