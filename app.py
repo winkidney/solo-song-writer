@@ -47,6 +47,9 @@ def get_rhythm(input_strs: str):
                 number = found[0]
                 translated_numbers += number
                 translated_chars += number2rhythm(int(number))
+            else:
+                translated_numbers += " "
+                translated_chars += " "
         lines.append(
             " ".join([translated_chars, translated_numbers])
         )
