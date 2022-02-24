@@ -15,5 +15,16 @@
 
 请使用现代浏览器访问：[https://pinyin.37soloist.com](https://pinyin.37soloist.com)
 
+# 部署你自己的实例
+首先你需要自行配置一个 Python3.x 的环境，然后
+
+```
+pip install poetry
+poetry install
+./start_gunicorn.sh
+```
+
+访问`http://127.0.0.1:5678`即可访问服务
+
 # 以后
 也许会做成先IDE一样，可以为你自动补全或智能标注歌词内容呢？
