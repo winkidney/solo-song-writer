@@ -42,14 +42,17 @@ def get_rhythm(input_strs: str):
         translated_chars = ""
         translated_numbers = ""
         for r in translated:
-            found = re.findall(r"\d+", r[0])
+            target = r[0].replace(" ", "")
+            found = re.findall(r"\d+", target)
+            if target == "":
+                continue
             if len(found) > 0:
                 number = found[0]
                 translated_numbers += number
                 translated_chars += number2rhythm(int(number))
             else:
-                translated_numbers += " "
-                translated_chars += " "
+                translated_numbers += "*"
+                translated_chars += "*"
         lines.append(
             " ".join([translated_chars, translated_numbers])
         )
